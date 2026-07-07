@@ -25,6 +25,25 @@ task-board は React (Vite) 製のタスク管理アプリです。
 - コードを更新した際は、通常の `git push` (mainブランチ) に加えて `npm run deploy` を実行し、
   公開サイトにも反映すること。
 
+## 技術スタック
+
+- React 19 + Vite (JavaScript, JSXは `.jsx` 拡張子。TypeScriptは未導入)
+- スタイリングはプレーンCSS (CSSファイルをコンポーネントと同名で配置し、直接import)
+- Lintは `oxlint` (`npm run lint`)
+- 状態管理はReact標準の `useState` / `useEffect` のみ。外部の状態管理ライブラリは導入しない
+- ルーティングライブラリは未導入 (単一画面のアプリのため)
+
+## コンポーネント命名規約
+
+- コンポーネントは1ファイル1コンポーネントとし、ファイル名はコンポーネント名と一致させる
+  (例: `App.jsx` → `function App()`)
+- コンポーネント名はパスカルケース (`TaskList`, `TaskItem` など)。ファイル名も同じくパスカルケースの `.jsx`
+- 対応するスタイルは同名の `.css` ファイルに書き、コンポーネントファイル内で直接importする
+  (例: `TaskList.jsx` + `TaskList.css`)
+- 関数コンポーネント + Hooksで実装する (クラスコンポーネントは使わない)
+- propsで渡すイベントハンドラは `onXxx` (例: `onToggle`, `onDelete`)、
+  コンポーネント内部の関数は動詞から始める名前 (例: `addTask`, `toggleTask`) にする
+
 ## Git運用ルール
 
 - **コードに変更を加えたら、その都度GitHubにプッシュすること。**
