@@ -15,6 +15,15 @@ task-board は React (Vite) 製のタスク管理アプリです。
 - `npm install`: 依存関係のインストール
 - `npm run dev`: 開発サーバー起動
 - `npm run build`: 本番ビルド
+- `npm run deploy`: `gh-pages` ブランチにビルド成果物 (`dist/`) を公開
+
+### GitHub Pages公開
+
+- 公開URL: https://ayumi-26.github.io/task-board/
+- `gh-pages` パッケージを使い、`dist/` を `gh-pages` ブランチにデプロイする方式。
+- `vite.config.js` の `base: '/task-board/'` はこのサブパス配信のための設定なので変更しないこと。
+- コードを更新した際は、通常の `git push` (mainブランチ) に加えて `npm run deploy` を実行し、
+  公開サイトにも反映すること。
 
 ## Git運用ルール
 
